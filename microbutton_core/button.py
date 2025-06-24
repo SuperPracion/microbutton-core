@@ -2,10 +2,7 @@ __all__ = ["Button"]
 __version__ = "1.0.0"
 __author__ = "Akhmetov Timur Elmirovich"
 
-from time import ticks_ms
-from machine import Pin
-from lib.sr74hc165 import SR74HC165
-
+from time import time
 
 # PRESS - 0
 # UNPRESS - 1
@@ -28,6 +25,10 @@ class Button:
         press_value: int = PRESS,
         unpress_value: int = UNPRESS,
     ):
+        if press_value == unpress_value:
+            raise AttributeError(
+                f"press_value: {press_value} and unpress_value {unpress_value} are equal!"
+            )
         self._state = state
         self.press_value = press_value
         self.unpress_value = unpress_value
@@ -40,7 +41,7 @@ class Button:
 
     @state.setter
     def state(self, value: int):
-        now = ticks_ms()
+        now = time()
         if value == self.press_value:
             if (
                 self._state == PRESS
