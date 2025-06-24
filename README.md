@@ -52,7 +52,7 @@ button = Button(
 ```
 
 ### Атрибут класса хранящей текущее значение состояния кнопки.
-state
+#### state
 ```python
 ...
 if button.state == ...:
