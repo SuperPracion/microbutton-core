@@ -13,8 +13,10 @@
 ![ButtonAlgorithm](images/ButtonAlgorithm.png)
 
 ## Установка
+Если вам нужен только класс Button, вы можете скопировать его из microbutton_core каталога репозитория в lib\ вашего проекте и в lib\ вашего девайс.
+![ButtonDownload](images/ButtonDownload.png)
 
-Используйте пакетный менеджер [pip](https://pip.pypa.io/en/stable/) для установки microbutton-core.
+Или используйте пакетный менеджер [pip](https://pip.pypa.io/en/stable/) для установки microbutton-core как библиотеки.
 
 ```bash
 pip install https://github.com/SuperPracion/microbutton-core.git
