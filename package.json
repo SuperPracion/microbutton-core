@@ -1,0 +1,17 @@
+{
+  "name": "microbutton_core",
+  "version": "1.0.0",
+  "keywords": ["button", "button core"],
+  "authors": [
+    {
+        "name": "Akhmetov Timur Elmirovich", 
+        "email": "superpracion@mail.ru",
+        "url": "https://github.com/SuperPracion"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SuperPracion/microbutton-core"
+  },
+  "license": "APACHE"
+}
