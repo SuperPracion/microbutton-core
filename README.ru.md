@@ -18,12 +18,13 @@
 
 ```python
 import mip
-mip.install("github:SuperPracion/microbutton_core/button.py")
+mip.install("github:SuperPracion/microbutton-core/microbutton_core/button.py")
+
 ```
 Если нужна определённая версия:
 ```python
 import mip
-mip.install("github:SuperPracion/microbutton_core/button.py", version="branch-or-tag")
+mip.install("github:SuperPracion/microbutton-core/microbutton_core/button.py", version="branch-or-tag")
 ```
 
 ## Использование

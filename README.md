@@ -17,13 +17,13 @@ Use the [mip](https://docs.micropython.org/en/latest/reference/packages.html) pa
 
 ```python
 import mip
-mip.install("github:SuperPracion/microbutton_core/button.py")
+mip.install("github:SuperPracion/microbutton-core/microbutton_core/button.py")
 ```
 
 For a specific version:
 ```python
 import mip
-mip.install("github:SuperPracion/microbutton_core/button.py", version="branch-or-tag")
+mip.install("github:SuperPracion/microbutton-core/microbutton_core/button.py", version="branch-or-tag")
 ```
 
 ## How To Use
