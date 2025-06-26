@@ -1,41 +1,39 @@
-### [EN](README.en.md) [RU](README.md)
+### [EN](README.md) [RU](README.ru.md)
 
 # microbutton-core
 
 ![ButtonCore](images/ButtonCore.png)
 
-## Описание
-Проект выступает в роле ядра, описывая общие принципы и интерфейсы для работы с физическим представлением кнопки.
+## Description
+This project acts as a core library. It explains basic principles and interfaces for working with physical buttons.
 
-Является зависимостью таких реализаций как [microbutton-pin](https://github.com/SuperPracion/microbutton-pin) или [microbutton-spi](https://github.com/SuperPracion/microbutton-spi), реализующих работу с кнопкой подключенной к Pin или к шине SPI.
+It's used by other libraries like [microbutton-pin](https://github.com/SuperPracion/microbutton-pin) or [microbutton-spi](https://github.com/SuperPracion/microbutton-spi). These handle buttons connected to Pins or SPI buses.
 
-## Алгоритм
+## How It Works
 ![ButtonAlgorithm](images/ButtonAlgorithm.png)
 
-## Установка
-
-Используйте пакетный менеджер [mip](https://docs.micropython.org/en/latest/reference/packages.html) для установки microbutton-core как библиотеки:
+## Installation
+Use the [mip](https://docs.micropython.org/en/latest/reference/packages.html) package manager to install:
 
 ```python
 import mip
 mip.install("github:SuperPracion/microbutton_core/button.py")
 ```
-Если нужна определённая версия:
+
+For a specific version:
 ```python
 import mip
 mip.install("github:SuperPracion/microbutton_core/button.py", version="branch-or-tag")
 ```
 
-## Использование
-
-#### Button
+## How To Use
 ```python
 from lib.button import Button, PRESS, UNPRESS
 
 # Default PullUp Button
 button = Button()
 
-# PullDown Button, inverse start pos. states
+# PullDown Button (reversed states)
 button = Button(
     press_value=UNPRESS,
     unpress_value=PRESS,
@@ -45,17 +43,16 @@ button = Button(
     press_value=1,
     unpress_value=0,
 )
-# If You Need To Check Specific States
+# For special state values
 button = Button(
     press_value=3,
     unpress_value=0,
 )
 ```
 
-### Атрибут класса хранящей текущее значение состояния кнопки.
+### Class Attributes
 #### state
 ```python
-...
 if button.state == ...:
 # or
 if button.state in [...]:
@@ -66,100 +63,63 @@ switch button.state:
 print(button.state)
 ```
 
-#### press_value
-```python
-print(button.press_value)
-# quick/hot update, not recommended
-button.press_value = ...
-```
-
-#### unpress_value
-```python
-print(button.unpress_value)
-# quick/hot update, not recommended
-button.unpress_value = ...
-```
-
-#### .is_press возвращающая True в случае если кнопка Нажата
+#### .is_press Check if press
 ```python
 if button.is_press:
-    print("button is press!")
+    print("Button pressed!")
 ```
 
-#### .is_unpress возвращающая True в случае если кнопка Отжата.
+#### .is_unpress Check if unpress
 ```python
 if button.is_unpress:
-    print("button is unpress")
+    print("Button released")
 ```
-
-#### .is_long_press возвращающая True в случае если кнопка находится в состоянии Долгого удержания.
+#### .is_long_press Check if released
+Check long press
 ```python
 if button.is_long_press:
-    print("button is long press")
+    print("Long press")
 ```
 
-#### .is_click возвращающая True в случае если кнопкой был сделал Клик.
+#### .is_click Check single click
 ```python
 if button.is_click:
-    print("button is click")
+    print("Single click")
 ```
 
-#### .is_double_click возвращающая True в случае если кнопкой был сделал Двойной Клик.
+#### .is_double_click Check double click
 ```python
 if button.is_double_click:
-    print("button is double click")
+    print("Double click")
 ```
 
-#### .is_multi_click возвращающая True в случае если кнопкой был сделал Мульти Клик.
+#### .is_multi_click Check multiple clicks
 ```python
 if button.is_multi_click:
-    print("button is multi click")
+    print("Multiple clicks")
 ```
 
 #### tick()
 ```python
-from lib.button import Button
-
-
 class MicroButton(Button):
-    def __init__(self, source_data_class):
+    def __init__(self, data_source):
         super().__init__()
-        self.source_data_class = source_data_class
+        self.data_source = data_source
 
     def tick(self):
-        self.value = source_data_class.value()
+        self.value = data_source.value()  # Get new value
 
 mbt = MicroButton()
-mbt.tick()
+mbt.tick()  # Call regularly
 ```
 
-#### PRESS = 0
+### Default Values
 ```python
-# Стандартное значение используемое для описания состояния нажатия кнопки
-from lib.button import PRESS
+PRESS = 0           # Button pressed value
+UNPRESS = 1         # Button released value
+LONG_PRESS = 2      # Long press state
+MIN_PRESS_TIME_OVER = 400  # Min press time (ms)
 ```
 
-#### UNPRESS = 1
-```python
-# Стандартное значение используемое для описания состояния нажатия отжатия
-from lib.button import UNPRESS
-```
-
-#### LONG_PRESS = 2
-```python
-# Стандартное значение используемое для описания состояния долгого нажатия
-from lib.button import LONG_PRESS
-```
-
-#### MIN_PRESS_TIME_OVER = 400  # ms
-```python
-# Стандартное значение используемое для описания минимального времени сброса состояния нажатия 
-from lib.button import MIN_PRESS_TIME_OVER
-```
-
-## Прекомпиляция
-
-
-## Лицензия
-
+## License
 [Apache](http://www.apache.org/licenses/)
