@@ -13,18 +13,17 @@
 ![ButtonAlgorithm](images/ButtonAlgorithm.png)
 
 ## Установка
-Если вам нужен только класс Button, вы можете скопировать его из microbutton_core каталога репозитория в lib\ вашего проекте и в lib\ вашего девайс.
-![ButtonDownload](images/ButtonDownload.png)
 
-Или используйте пакетный менеджер [pip](https://pip.pypa.io/en/stable/) для установки microbutton-core как библиотеки.
+Используйте пакетный менеджер [mip](https://docs.micropython.org/en/latest/reference/packages.html) для установки microbutton-core как библиотеки:
 
-```bash
-pip install https://github.com/SuperPracion/microbutton-core.git
+```python
+import mip
+mip.install("github:SuperPracion/microbutton_core/button.py")
 ```
-После установки библиотеки файла microbutton-core необходимо разместить в папку .\lib для использования на микроконтроллере.
-
-```bash
-python install.py
+Если нужна определённая версия:
+```python
+import mip
+mip.install("github:SuperPracion/microbutton_core/button.py", version="branch-or-tag")
 ```
 
 ## Использование
@@ -157,6 +156,9 @@ from lib.button import LONG_PRESS
 # Стандартное значение используемое для описания минимального времени сброса состояния нажатия 
 from lib.button import MIN_PRESS_TIME_OVER
 ```
+
+## Прекомпиляция
+
 
 ## Лицензия
 
