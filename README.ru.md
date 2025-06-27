@@ -60,8 +60,8 @@ if button.state == ...:
 # or
 if button.state in [...]:
 # or
-switch button.state:
-    case ...
+match button.state:
+    case: ...
 # or
 print(button.state)
 ```
