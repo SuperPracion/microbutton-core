@@ -2,7 +2,7 @@ __all__ = ["Button"]
 __version__ = "1.0.0"
 __author__ = "Akhmetov Timur Elmirovich"
 
-from time import time_ms
+from time import ticks_ms
 
 # PRESS - 0
 # UNPRESS - 1
@@ -41,7 +41,7 @@ class Button:
 
     @state.setter
     def state(self, value: int):
-        now = time_ms()
+        now = ticks_ms()
         if value == self.press_value:
             if (
                 self._state == PRESS
