@@ -4,15 +4,15 @@ __author__ = "Akhmetov Timur Elmirovich"
 
 from time import ticks_ms
 
-# PRESS - 0
-# UNPRESS - 1
+# PRESS - 1
+# UNPRESS - 0
 # LONG_PRESS = 2
 # Click - Click count == 1
 # Double Click - Click count == 2
 # Multi Click - Click count > 2
 
-PRESS = 0
-UNPRESS = 1
+PRESS = 1
+UNPRESS = 0
 LONG_PRESS = 2
 MIN_PRESS_TIME_OVER = 400  # ms
 
